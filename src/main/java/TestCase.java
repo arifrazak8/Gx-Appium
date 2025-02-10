@@ -2,11 +2,8 @@ import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
-
-import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.Arrays;
 
@@ -24,27 +21,27 @@ public class TestCase extends Launch {
             var Dispatch_Form = driver.findElement(AppiumBy.accessibilityId("Driver Dispatch Form"));
             Dispatch_Form.click();
         }
-        var dispatch_form = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(15)"));
-        dispatch_form.click();
-        var clickk = driver.findElement(AppiumBy.xpath("//android.widget.EditText"));
-        clickk.sendKeys("7004");
-        var form_location = driver.findElement(AppiumBy.accessibilityId("7004-Myntra Warehouse-(terminal)"));
-        wait.until(ExpectedConditions.elementToBeClickable(form_location));
-        form_location.click();
-        var el3 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(17)"));
-        el3.click();
-        var el4 = driver.findElement(AppiumBy.xpath("//android.widget.EditText"));
-        el4.sendKeys("101");
-        var el5 = driver.findElement(AppiumBy.accessibilityId("101-Roadster-(spot)"));
-        el5.click();
-        var el6 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\")"));
-        el6.click();
-        el6.sendKeys("1");
+//        var dispatch_form = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(15)"));
+//        dispatch_form.click();
+//        var clickk = driver.findElement(AppiumBy.xpath("//android.widget.EditText"));
+//        clickk.sendKeys("7004");
+//        var form_location = driver.findElement(AppiumBy.accessibilityId("7004-Myntra Warehouse-(terminal)"));
+//        wait.until(ExpectedConditions.elementToBeClickable(form_location));
+//        form_location.click();
+        var dispatch_to = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(17)"));
+        dispatch_to.click();
+        var to_location = driver.findElement(AppiumBy.xpath("//android.widget.EditText"));
+        to_location.sendKeys("101");
+        var click = driver.findElement(AppiumBy.accessibilityId("101-Roadster-(spot)"));
+        click.click();
+        var Traile1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\")"));
+        Traile1.click();
+        Traile1.sendKeys("1");
         Thread.sleep(2000);
-        var el7 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(1)"));
-        wait.until(ExpectedConditions.elementToBeClickable(el7));
-        el7.click();
-        el7.sendKeys("2");
+        var dolly1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(1)"));
+        wait.until(ExpectedConditions.elementToBeClickable(dolly1));
+        dolly1.click();
+        dolly1.sendKeys("2");
 
         final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         var start = new Point(491, 1752);
@@ -58,15 +55,30 @@ public class TestCase extends Launch {
         swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Arrays.asList(swipe));
 
-        var el8 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(2)"));
-        wait.until(ExpectedConditions.elementToBeClickable(el8));
-        el8.click();
-        el8.sendKeys("3");
-        var el9 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(3)"));
-        el9.click();
-        el9.sendKeys("225683");
-        var el10 = driver.findElement(AppiumBy.accessibilityId("Submit"));
-        el10.click();
+        var trailer2 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(2)"));
+        wait.until(ExpectedConditions.elementToBeClickable(trailer2));
+        trailer2.click();
+        trailer2.sendKeys("3");
+        var mileage = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(3)"));
+        mileage.click();
+        mileage.sendKeys("9");
+        var submit_btn1 = driver.findElement(AppiumBy.accessibilityId("Submit"));
+        submit_btn1.click();
+        Thread.sleep(2000);
+        var image1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"Proof of closed trailer 1 \n(Green Light or Physical Door Closed)\")"));
+        image1.click();
+        var shutter1 = driver.findElement(AppiumBy.accessibilityId("Shutter"));
+        shutter1.click();
+        var Done1 = driver.findElement(AppiumBy.accessibilityId("Done"));
+        Done1.click();
+        var image2 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"Proof of closed trailer 2 \n(Green Light or Physical Door Closed)\")"));
+        image2.click();
+        var shutter2 = driver.findElement(AppiumBy.accessibilityId("Shutter"));
+        shutter2.click();
+        var Done2 = driver.findElement(AppiumBy.accessibilityId("Done"));
+        Done2.click();
+        var submit_btn2 = driver.findElement(AppiumBy.accessibilityId("Submit"));
+        submit_btn2.click();
+        Thread.sleep(15000);
     }
-
 }
