@@ -17,13 +17,18 @@ public class TestCase extends Launch {
         try {
             new Clock_In().Clock_in();
         } catch (Exception e) {
-            System.out.println("Clock_in is not required ");
+            System.out.println("Clock_in is not required");
             var Menu = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.ImageView\").instance(2)"));
             Menu.click();
             var Dispatch_Form = driver.findElement(AppiumBy.accessibilityId("Driver Dispatch Form"));
             Dispatch_Form.click();
         }
-//        new Re_status().re_status();
+        try {
+            var lo = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"7004-Myntra Warehouse-(terminal)\").index(8)"));
+        } catch (Exception e){
+            System.out.println("Re-status is required");
+            new Re_status().re_status();
+        }
 
 //        var dispatch_form = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(15)"));
 //        dispatch_form.click();
