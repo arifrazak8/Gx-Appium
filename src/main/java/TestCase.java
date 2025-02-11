@@ -11,6 +11,8 @@ public class TestCase extends Launch {
 
     @Test
     public void TC1() throws InterruptedException {
+        Mileage m = new Mileage();
+        String numberAsString = String.valueOf(Mileage.number);
         //If clock_in required.
         try {
             new Clock_In().Clock_in();
@@ -21,6 +23,8 @@ public class TestCase extends Launch {
             var Dispatch_Form = driver.findElement(AppiumBy.accessibilityId("Driver Dispatch Form"));
             Dispatch_Form.click();
         }
+//        new Re_status().re_status();
+
 //        var dispatch_form = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(15)"));
 //        dispatch_form.click();
 //        var clickk = driver.findElement(AppiumBy.xpath("//android.widget.EditText"));
@@ -61,7 +65,9 @@ public class TestCase extends Launch {
         trailer2.sendKeys("3");
         var mileage = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(3)"));
         mileage.click();
-        mileage.sendKeys("9");
+        mileage.sendKeys(numberAsString);
+        Mileage.number+=1;
+        m.saveNumberToFile(Mileage.number);
         var submit_btn1 = driver.findElement(AppiumBy.accessibilityId("Submit"));
         submit_btn1.click();
         Thread.sleep(2000);
@@ -79,6 +85,39 @@ public class TestCase extends Launch {
         Done2.click();
         var submit_btn2 = driver.findElement(AppiumBy.accessibilityId("Submit"));
         submit_btn2.click();
-        Thread.sleep(15000);
+        Thread.sleep(5000);
+        Traile1.click();
+        Traile1.sendKeys("2");
+        var start1 = new Point(483, 1728);
+        var end1 = new Point (511, 954);
+        var swipe1 = new Sequence(finger, 1);
+        swipe1.addAction(finger.createPointerMove(Duration.ofMillis(0),
+                PointerInput.Origin.viewport(), start1.getX(), start1.getY()));
+        swipe1.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe1.addAction(finger.createPointerMove(Duration.ofMillis(1000),
+                PointerInput.Origin.viewport(), end1.getX(), end1.getY()));
+        swipe1.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(swipe1));
+        Thread.sleep(2000);
+        mileage.click();
+        mileage.sendKeys(numberAsString);
+        Mileage.number+=1;
+        m.saveNumberToFile(Mileage.number);
+        submit_btn1.click();
+        Thread.sleep(2000);
+//        var image1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"Proof of closed trailer 1 \n(Green Light or Physical Door Closed)\")"));
+        image1.click();
+//        var shutter1 = driver.findElement(AppiumBy.accessibilityId("Shutter"));
+        shutter1.click();
+//        var Done1 = driver.findElement(AppiumBy.accessibilityId("Done"));
+        Done1.click();
+//        var image2 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"Proof of closed trailer 2 \n(Green Light or Physical Door Closed)\")"));
+        image2.click();
+//        var shutter2 = driver.findElement(AppiumBy.accessibilityId("Shutter"));
+        shutter2.click();
+//        var Done2 = driver.findElement(AppiumBy.accessibilityId("Done"));
+        Done2.click();
+//        var submit_btn2 = driver.findElement(AppiumBy.accessibilityId("Submit"));
+        submit_btn2.click();
     }
 }

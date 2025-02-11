@@ -11,8 +11,13 @@ import java.util.Objects;
 
 public class Launch implements Constant
 {
+
     public static AndroidDriver driver;
     public static WebDriverWait wait;
+
+
+//    public static int mileage1 =30;
+//    String mil = String.valueOf(mileage1);
     @BeforeClass
     public void setUp() throws InterruptedException {
         var options = new BaseOptions<>()
@@ -31,8 +36,12 @@ public class Launch implements Constant
         driver = new AndroidDriver(getUrl(), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Mileage m= new Mileage();
+        Mileage.number = m.readNumberFromFile();
         //For signIn
         new Sign_In().Signin();
+
+
 
     }
 
