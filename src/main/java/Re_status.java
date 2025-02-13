@@ -1,3 +1,4 @@
+import Generic.Launch;
 import io.appium.java_client.AppiumBy;
 
 public class Re_status extends Launch {

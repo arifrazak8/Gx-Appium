@@ -1,3 +1,6 @@
+import Generic.Excel_reader;
+import Generic.Launch;
+import Generic.Mileage;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.PointerInput;
@@ -13,9 +16,11 @@ public class TestCase extends Launch {
     public void TC1() throws InterruptedException {
         Mileage m = new Mileage();
         String numberAsString = String.valueOf(Mileage.number);
+        String loc= Excel_reader.getLocation(location);
         //If clock_in required.
         try {
             new Clock_In().Clock_in();
+            System.out.println("Clock_in is required");
         } catch (Exception e) {
             System.out.println("Clock_in is not required");
             var Menu = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.ImageView\").instance(2)"));
@@ -25,11 +30,15 @@ public class TestCase extends Launch {
         }
         try {
             var lo = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"7004-Myntra Warehouse-(terminal)\").index(8)"));
+            System.out.println("Re-status is not required");
         } catch (Exception e){
             System.out.println("Re-status is required");
             new Re_status().re_status();
         }
 
+        //If don't want to re-status.
+//        var lo = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"7004-Myntra Warehouse-(terminal)\").index(8)"));
+        //For first time user
 //        var dispatch_form = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(15)"));
 //        dispatch_form.click();
 //        var clickk = driver.findElement(AppiumBy.xpath("//android.widget.EditText"));
@@ -40,8 +49,8 @@ public class TestCase extends Launch {
         var dispatch_to = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(17)"));
         dispatch_to.click();
         var to_location = driver.findElement(AppiumBy.xpath("//android.widget.EditText"));
-        to_location.sendKeys("101");
-        var click = driver.findElement(AppiumBy.accessibilityId("101-Roadster-(spot)"));
+        to_location.sendKeys(location);
+        var click = driver.findElement(AppiumBy.accessibilityId(loc));
         click.click();
         var Traile1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\")"));
         Traile1.click();
@@ -91,8 +100,17 @@ public class TestCase extends Launch {
         var submit_btn2 = driver.findElement(AppiumBy.accessibilityId("Submit"));
         submit_btn2.click();
         Thread.sleep(5000);
+
+    }
+    @Test
+    public void TC2() throws InterruptedException {
+        Mileage m = new Mileage();
+        String numberAsString = String.valueOf(Mileage.number);
+        var Traile1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\")"));
         Traile1.click();
         Traile1.sendKeys("2");
+
+        final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         var start1 = new Point(483, 1728);
         var end1 = new Point (511, 954);
         var swipe1 = new Sequence(finger, 1);
@@ -104,25 +122,22 @@ public class TestCase extends Launch {
         swipe1.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Arrays.asList(swipe1));
         Thread.sleep(2000);
-        mileage.click();
-        mileage.sendKeys(numberAsString);
+        var mileage1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(2)"));
+        mileage1.click();
+        mileage1.sendKeys(numberAsString);
         Mileage.number+=1;
         m.saveNumberToFile(Mileage.number);
+        var submit_btn1 = driver.findElement(AppiumBy.accessibilityId("Submit"));
         submit_btn1.click();
         Thread.sleep(2000);
-//        var image1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"Proof of closed trailer 1 \n(Green Light or Physical Door Closed)\")"));
+        var image1 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"Proof of closed trailer 1 \n(Green Light or Physical Door Closed)\")"));
         image1.click();
-//        var shutter1 = driver.findElement(AppiumBy.accessibilityId("Shutter"));
+        var shutter1 = driver.findElement(AppiumBy.accessibilityId("Shutter"));
         shutter1.click();
-//        var Done1 = driver.findElement(AppiumBy.accessibilityId("Done"));
+        var Done1 = driver.findElement(AppiumBy.accessibilityId("Done"));
         Done1.click();
-//        var image2 = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"Proof of closed trailer 2 \n(Green Light or Physical Door Closed)\")"));
-        image2.click();
-//        var shutter2 = driver.findElement(AppiumBy.accessibilityId("Shutter"));
-        shutter2.click();
-//        var Done2 = driver.findElement(AppiumBy.accessibilityId("Done"));
-        Done2.click();
-//        var submit_btn2 = driver.findElement(AppiumBy.accessibilityId("Submit"));
+        var submit_btn2 = driver.findElement(AppiumBy.accessibilityId("Submit"));
         submit_btn2.click();
+        Thread.sleep(5000);
     }
 }

@@ -1,3 +1,4 @@
+package Generic;
 
 public interface Constant {
     String[] clickable_element = {"Next", "Weiter", "Devam", "Log In", "Anmelden", "Giriş"};
@@ -10,7 +11,9 @@ public interface Constant {
     String[] sendkeys_element ={"Mail","E-Mail","Eposta adresiniz","Password","Passwort","Şifreniz"};
     String username ="arifraza";
     String password ="1234567";
-
+    String username1 ="jfelisme";
+    String password1 ="123456";
+    String location ="7153";
 //    String deviceName_value ="RMX3950";
 //    String platformVersion_value = "14.0";
 }
