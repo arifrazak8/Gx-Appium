@@ -1,21 +1,19 @@
 package POM;
 
-import Generic.Launch;
+import Generic.DriverManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.sql.DriverManager;
+public class Sign_in_POM {
 
-public class Sign_in_POM extends Launch {
-
+    private AppiumDriver driver;
 
     public Sign_in_POM(WebDriver driver) {
-
+        this.driver = DriverManager.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

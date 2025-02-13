@@ -15,12 +15,10 @@ public class DriverManager implements Constant {
     public static AppiumDriver driver;
     public static WebDriverWait wait;
 
-    public static void initializeDriver(String platform) {
+    public static void initializeDriver() {
         var options = new BaseOptions<>()
                 .amend("platformName", platformName_value)
                 .amend("appium:platformVersion", platformVersion_value)
-//                .amend("disableSuppressAccessibilityService",true)
-//                .amend("autoGrantPermissions",true)
                 .amend("appium:deviceName", deviceName_value)
                 .amend("appium:app", app_value )
                 .amend("appium:automationName", automationName_value)
@@ -35,7 +33,7 @@ public class DriverManager implements Constant {
     }
     private static URL getUrl() {
         try {
-            return new URL(Constant.Appium_URL);
+            return new URL(Appium_URL);
         } catch (MalformedURLException e) {
             throw new RuntimeException("Invalid URL for Appium Server", e);
         }

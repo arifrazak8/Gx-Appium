@@ -7,22 +7,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.time.Duration;
-
 public class Launch implements Constant
 {
 
     public static AndroidDriver driver;
     public static WebDriverWait wait;
 
-
-//    public static int mileage1 =30;
-//    String mil = String.valueOf(mileage1);
     @BeforeClass
     public void setUp() throws Exception {
-        DriverManager.initializeDriver("android"); // Change to "ios" for iOS tests
+        DriverManager.initializeDriver();
 
         //For signIn
 
