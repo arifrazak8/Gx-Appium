@@ -31,7 +31,7 @@ public class TestCase extends Launch {
             clock.tapCheckBox();
             clock.tapSign();
             clock.tapSubmit();
-            System.out.println("Clock_in is required");
+            System.out.println("Clock_in was required");
         } catch (Exception e) {
             System.out.println("Clock_in is not required");
             var Menu = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.ImageView\").instance(2)"));
