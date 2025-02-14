@@ -12,6 +12,7 @@ public interface Constant {
     String username ="arifraza";
     String password ="1234567";
     String username1 ="jfelisme";
+    String username2="dleonardo";
     String password1 ="123456";
     String location ="7153";
 //    String deviceName_value ="RMX3950";

@@ -12,7 +12,7 @@ public class Sign_in_POM {
 
     private AppiumDriver driver;
 
-    public Sign_in_POM(WebDriver driver) {
+    public Sign_in_POM() {
         this.driver = DriverManager.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

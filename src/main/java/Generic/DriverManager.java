@@ -12,7 +12,7 @@ import java.net.URL;
 import java.time.Duration;
 
 public class DriverManager implements Constant {
-    public static AppiumDriver driver;
+    public static AppiumDriver drivers;
     public static WebDriverWait wait;
 
     public static void initializeDriver() {
@@ -27,9 +27,9 @@ public class DriverManager implements Constant {
                 .amend("appium:newCommandTimeout", 3600)
                 .amend("appium:connectHardwareKeyboard", true);
 
-        driver = new AndroidDriver(getUrl(), options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        drivers = new AndroidDriver(getUrl(), options);
+        drivers.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        wait = new WebDriverWait(drivers, Duration.ofSeconds(10));
     }
     private static URL getUrl() {
         try {
@@ -40,12 +40,12 @@ public class DriverManager implements Constant {
     }
 
     public static AppiumDriver getDriver() {
-        return driver;
+        return drivers;
     }
 
     public static void quitDriver() {
-        if (driver != null) {
-            driver.quit();
+        if (drivers != null) {
+            drivers.quit();
         }
     }
 }

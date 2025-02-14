@@ -1,6 +1,8 @@
 import Generic.Excel_reader;
 import Generic.Launch;
 import Generic.Mileage;
+import POM.Clock_in_POM;
+import POM.Re_statusPOM;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.PointerInput;
@@ -19,7 +21,16 @@ public class TestCase extends Launch {
         String loc= Excel_reader.getLocation(location);
         //If clock_in required.
         try {
-            new Clock_In().Clock_in();
+            Clock_in_POM clock =new Clock_in_POM();
+            clock.tabColck_In();
+            clock.tabColck_In();
+            Thread.sleep(2000);
+            clock.tapClickAsset();
+            clock.tapSelectAsset();
+            clock.tapContinueButton();
+            clock.tapCheckBox();
+            clock.tapSign();
+            clock.tapSubmit();
             System.out.println("Clock_in is required");
         } catch (Exception e) {
             System.out.println("Clock_in is not required");
@@ -33,7 +44,11 @@ public class TestCase extends Launch {
             System.out.println("Re-status is not required");
         } catch (Exception e){
             System.out.println("Re-status is required");
-            new Re_status().re_status();
+            Re_statusPOM reStatus=new Re_statusPOM();
+            reStatus.tabRe_StatusButton();
+            reStatus.enterLocation("7004");
+            reStatus.tapLocation();
+            reStatus.tapSubmit();
         }
 
         //If don't want to re-status.

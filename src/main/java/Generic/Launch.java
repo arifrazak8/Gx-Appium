@@ -17,9 +17,8 @@ public class Launch implements Constant
     public void setUp() throws Exception {
         DriverManager.initializeDriver();
 
-        //For signIn
-
-        Sign_in_POM sign_in = new Sign_in_POM(driver);
+        //For SignIn
+        Sign_in_POM sign_in = new Sign_in_POM();
         sign_in.enterUsername(username);
         sign_in.enterPassword(password);
         sign_in.tapViewPassword();
@@ -28,12 +27,12 @@ public class Launch implements Constant
         sign_in.tapAllowButton2();
         sign_in.tapAllowButton3();
     }
+
     @BeforeTest
     public  void mil(){
         Mileage m= new Mileage();
         Mileage.number = m.readNumberFromFile();
     }
-
 
     @AfterClass
     public void teardown() {
