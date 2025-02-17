@@ -3,7 +3,6 @@ package POM;
 import Generic.DriverManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,11 +12,13 @@ import java.time.Duration;
 public class Re_statusPOM {
     private AppiumDriver driver;
     private WebDriverWait wait;
+
     public Re_statusPOM() {
         this.driver = DriverManager.getDriver();
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+        PageFactory.initElements(driver, this);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
+
     @AndroidFindBy(accessibility = "Re-Status")
     private WebElement re_StatusButton;
 
