@@ -6,6 +6,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -40,23 +41,34 @@ public class Clock_in_POM {
     private WebElement submit;
 
     public void tabColck_In() {
+        wait.until(ExpectedConditions.elementToBeClickable(clock_InButton));
         clock_InButton.click();
     }
 
     public void tapClickAsset() {
+        wait.until(ExpectedConditions.elementToBeClickable(clickAsset));
         clickAsset.click();
 
     }
 
-    public void tapSelectAsset(){selectAsset.click();}
+    public void tapSelectAsset(){
+        wait.until(ExpectedConditions.elementToBeClickable(selectAsset));
+        selectAsset.click();}
 
     public void tapContinueButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(continueButton));
         continueButton.click();
     }
 
-    public void tapCheckBox(){checkBox.click();}
+    public void tapCheckBox(){
+        wait.until(ExpectedConditions.elementToBeClickable(checkBox));
+        checkBox.click();}
 
-    public void tapSign(){sign.click();}
+    public void tapSign(){
+        wait.until(ExpectedConditions.elementToBeClickable(sign));
+        sign.click();}
 
-    public void tapSubmit(){submit.click();}
+    public void tapSubmit(){
+        wait.until(ExpectedConditions.elementToBeClickable(submit));
+        submit.click();}
 }

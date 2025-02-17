@@ -1,7 +1,10 @@
+package Test;
+
 import Generic.Excel_reader;
 import Generic.Launch;
 import Generic.Mileage;
 import POM.Clock_in_POM;
+import POM.Menu_POM;
 import POM.Re_statusPOM;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.Point;
@@ -34,10 +37,9 @@ public class TestCase extends Launch {
             System.out.println("Clock_in was required");
         } catch (Exception e) {
             System.out.println("Clock_in is not required");
-            var Menu = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.ImageView\").instance(2)"));
-            Menu.click();
-            var Dispatch_Form = driver.findElement(AppiumBy.accessibilityId("Driver Dispatch Form"));
-            Dispatch_Form.click();
+            Menu_POM menu=new Menu_POM();
+            menu.tabMenuButton();
+            menu.tapDispatchForm();
         }
         try {
             var lo = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"7004-Myntra Warehouse-(terminal)\").index(8)"));
