@@ -1,6 +1,9 @@
 package Generic;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 public interface Constant {
+
     String[] clickable_element = {"Next", "Weiter", "Devam", "Log In", "Anmelden", "Giriş"};
     String platformName_value = "Android";
     String platformVersion_value = "15.0";

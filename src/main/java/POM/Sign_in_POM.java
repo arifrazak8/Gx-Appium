@@ -7,14 +7,19 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Sign_in_POM {
 
     private AppiumDriver driver;
-
+    private WebDriverWait wait;
     public Sign_in_POM() {
         this.driver = DriverManager.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.EditText\").instance(0)")
@@ -39,11 +44,13 @@ public class Sign_in_POM {
     private WebElement allowButton3;
 
     public void enterUsername(String username) {
+        wait.until(ExpectedConditions.elementToBeClickable(usernameField));
         usernameField.click();
         usernameField.sendKeys(username);
     }
 
     public void enterPassword(String password) {
+        wait.until(ExpectedConditions.elementToBeClickable(passwordField));
         passwordField.click();
         passwordField.sendKeys(password);
     }
