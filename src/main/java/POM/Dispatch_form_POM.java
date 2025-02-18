@@ -33,8 +33,6 @@ public class Dispatch_form_POM implements Constant {
         this.driver = DriverManager.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        System.out.println(loc);
-        this.clickAction = driver.findElement(AppiumBy.accessibilityId(loc));
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.View\").instance(15)")
@@ -64,7 +62,7 @@ public class Dispatch_form_POM implements Constant {
     @AndroidFindBy(accessibility= " Mark as Combo Trip")
     private WebElement comboCheckbox;
 
-    @AndroidFindBy(accessibility="")
+    @AndroidFindBy(accessibility="zero")
     private WebElement zeroCheckbox;
 
     @AndroidFindBy(accessibility= "Submit")
@@ -88,11 +86,12 @@ public class Dispatch_form_POM implements Constant {
 
     public void enterLocation() {
         wait.until(ExpectedConditions.elementToBeClickable(enterLocation));
-        enterLocation.click();
         enterLocation.sendKeys(location);
     }
 
-    public void tapSelectLocation(){clickAction.click();}
+    public void tapSelectLocation(){
+        this.clickAction = driver.findElement(AppiumBy.accessibilityId(loc));
+        clickAction.click();}
 
     public void enterTraile1(String traile1_no) {
         wait.until(ExpectedConditions.elementToBeClickable(traile1));

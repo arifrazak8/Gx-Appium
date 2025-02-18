@@ -8,6 +8,7 @@ import POM.Dispatch_form_POM;
 import POM.Menu_POM;
 import POM.Re_statusPOM;
 import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class ArifTest extends Launch {
@@ -25,6 +26,7 @@ public class ArifTest extends Launch {
             clock.tapSelectAsset();
             clock.tapContinueButton();
             clock.tapCheckBox();
+            clock.tapContinueButton();
             clock.tapSign();
             clock.tapSubmit();
             System.out.println("Clock_in was required");
@@ -35,17 +37,18 @@ public class ArifTest extends Launch {
             menu.tapDispatchForm();
         }
         // For Re-status
-        try {
-            driver.findElement(AppiumBy.androidUIAutomator(re_status_check));
-            System.out.println("Re-status is not required");
-        } catch (Exception e) {
-            System.out.println("Re-status is required");
-            Re_statusPOM reStatus = new Re_statusPOM();
-            reStatus.tabRe_StatusButton();
-            reStatus.enterLocation("7004");
-            reStatus.tapLocation();
-            reStatus.tapSubmit();
-        }
+//        try {
+//            Thread.sleep(2000);
+//            WebElement a = driver.findElement(AppiumBy.androidUIAutomator(re_status_check));
+//            System.out.println("Re-status is not required");
+//        } catch (Exception e) {
+//            System.out.println("Re-status is required");
+//            Re_statusPOM reStatus = new Re_statusPOM();
+//            reStatus.tabRe_StatusButton();
+//            reStatus.enterLocation("7004");
+//            reStatus.tapLocation();
+//            reStatus.tapSubmit();
+//        }
 
         Dispatch_form_POM dispatchForm = new Dispatch_form_POM();
         dispatchForm.tapDispatchTo();
