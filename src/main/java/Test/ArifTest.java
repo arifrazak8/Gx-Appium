@@ -59,7 +59,6 @@ public class ArifTest extends Launch {
         dispatchForm.enterTraile1("1");
         dispatchForm.enterDolly1("2");
         Swip.swipeAction(new Point(491, 1752), new Point(491, 624));
-//        dispatchForm.swipeAction(new Point(491, 1752), new Point(491, 624));
         dispatchForm.enterTrailer2("3");
         dispatchForm.enterMileage();
         dispatchForm.tapSubmitButton();
@@ -69,7 +68,6 @@ public class ArifTest extends Launch {
         dispatchForm.tapShutter();
         dispatchForm.tapDone();
         Swip.swipeAction(new Point(498, 1884), new Point(507, 548));
-//        dispatchForm.swipeAction(new Point(498, 1884), new Point(507, 548));
         dispatchForm.tapClickImage2();
         dispatchForm.tapShutter();
         dispatchForm.tapDone();
