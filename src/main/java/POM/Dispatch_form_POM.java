@@ -111,31 +111,17 @@ public class Dispatch_form_POM implements Constant {
         dolly1.sendKeys(dolly1_no);
     }
 
-    public void swipeAction(){
+    public void swipeAction(Point start, Point end) {
         final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        var start = new Point(491, 1752);
-        var end = new Point (491, 624);
         var swipe = new Sequence(finger, 1);
-        swipe.addAction(finger.createPointerMove(Duration.ofMillis(0),
-                PointerInput.Origin.viewport(), start.getX(), start.getY()));
-        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-        swipe.addAction(finger.createPointerMove(Duration.ofMillis(1000),
-                PointerInput.Origin.viewport(), end.getX(), end.getY()));
-        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-        driver.perform(Arrays.asList(swipe));
-    }
 
-    public void swipeAction1(){
-        final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        var start = new Point(498, 1884);
-        var end = new Point (507, 548);
-        var swipe = new Sequence(finger, 1);
         swipe.addAction(finger.createPointerMove(Duration.ofMillis(0),
                 PointerInput.Origin.viewport(), start.getX(), start.getY()));
         swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         swipe.addAction(finger.createPointerMove(Duration.ofMillis(1000),
                 PointerInput.Origin.viewport(), end.getX(), end.getY()));
         swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
         driver.perform(Arrays.asList(swipe));
     }
 

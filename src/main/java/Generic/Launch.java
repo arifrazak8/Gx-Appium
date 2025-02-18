@@ -10,9 +10,6 @@ import org.testng.annotations.BeforeTest;
 public class Launch implements Constant
 {
 
-    public static AndroidDriver driver;
-    public static WebDriverWait wait;
-
     @BeforeClass
     public void setUp() {
 
