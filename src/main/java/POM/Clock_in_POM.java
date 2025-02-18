@@ -3,6 +3,7 @@ package POM;
 import Generic.DriverManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,7 +17,7 @@ public class Clock_in_POM {
 
     public Clock_in_POM() {
         this.driver = DriverManager.getDriver();
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 

@@ -7,6 +7,7 @@ import Generic.Mileage;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
@@ -30,7 +31,7 @@ public class Dispatch_form_POM implements Constant {
 
     public Dispatch_form_POM() {
         this.driver = DriverManager.getDriver();
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         System.out.println(loc);
         this.clickAction = driver.findElement(AppiumBy.accessibilityId(loc));
