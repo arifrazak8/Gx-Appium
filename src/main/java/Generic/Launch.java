@@ -15,6 +15,7 @@ public class Launch implements Constant
 
     @BeforeClass
     public void setUp() {
+
         DriverManager.initializeDriver();
 
         //For SignIn
