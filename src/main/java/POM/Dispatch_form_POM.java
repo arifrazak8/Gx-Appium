@@ -68,6 +68,12 @@ public class Dispatch_form_POM implements Constant {
     @AndroidFindBy(accessibility= "Submit")
     private WebElement submitButton;
 
+    @AndroidFindBy(uiAutomator= "new UiSelector().description(\"Proof Trip Buddy Closed \n(Screenshot Trip Buddy App)\")")
+    private WebElement uploadImage;
+
+    @AndroidFindBy(id= "com.google.android.providers.media.module:id/icon_thumbnail")
+    private WebElement uploadImageFile;
+
     @AndroidFindBy(uiAutomator= "new UiSelector().description(\"Proof of closed trailer 1 \n(Green Light or Physical Door Closed)\")")
     private WebElement clickImage1;
 
@@ -119,6 +125,20 @@ public class Dispatch_form_POM implements Constant {
         driver.perform(Arrays.asList(swipe));
     }
 
+    public void swipeAction1(){
+        final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        var start = new Point(498, 1884);
+        var end = new Point (507, 548);
+        var swipe = new Sequence(finger, 1);
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(0),
+                PointerInput.Origin.viewport(), start.getX(), start.getY()));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(1000),
+                PointerInput.Origin.viewport(), end.getX(), end.getY()));
+        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Arrays.asList(swipe));
+    }
+
     public void enterTrailer2(String trailer2_no) {
         wait.until(ExpectedConditions.elementToBeClickable(trailer2));
         trailer2.click();
@@ -137,7 +157,13 @@ public class Dispatch_form_POM implements Constant {
 
     public void tapZeroCheckbox(){zeroCheckbox.click();}
 
-    public void tapSubmitButton(){submitButton.click();}
+    public void tapSubmitButton(){
+        wait.until(ExpectedConditions.elementToBeClickable(submitButton));
+        submitButton.click();}
+
+    public void tapUploadImage(){uploadImage.click();}
+
+    public void tapUploadImageFile(){uploadImageFile.click();}
 
     public void tapClickImage1(){clickImage1.click();}
 

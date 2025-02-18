@@ -60,9 +60,12 @@ public class ArifTest extends Launch {
         dispatchForm.enterTrailer2("3");
         dispatchForm.enterMileage();
         dispatchForm.tapSubmitButton();
+        dispatchForm.tapUploadImage();
+        dispatchForm.tapUploadImageFile();
         dispatchForm.tapClickImage1();
         dispatchForm.tapShutter();
         dispatchForm.tapDone();
+        dispatchForm.swipeAction1();
         dispatchForm.tapClickImage2();
         dispatchForm.tapShutter();
         dispatchForm.tapDone();

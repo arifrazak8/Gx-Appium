@@ -33,7 +33,6 @@ public class Launch implements Constant
     public  void mil(){
         Mileage m= new Mileage();
         Mileage.number = m.readNumberFromFile();
-        System.out.println(Mileage.number);
     }
 
     @AfterClass

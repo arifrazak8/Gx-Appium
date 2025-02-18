@@ -6,16 +6,17 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Mileage {
-    public static final String FILE_PATH = "counter.properties";
+    public String FILE_PATH = "counter.properties";
     public static int number;
+
     public int readNumberFromFile() {
         Properties properties = new Properties();
         try (FileInputStream fis = new FileInputStream(FILE_PATH)) {
             properties.load(fis);
-            return Integer.parseInt(properties.getProperty("number", "33"));
+            return Integer.parseInt(properties.getProperty("number", "55")); // Default value 100
         } catch (IOException e) {
             e.printStackTrace();
-            return 33; // Default number if file doesn't exist
+            return 55; // Default value if file doesn't exist
         }
     }
 
