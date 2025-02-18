@@ -14,7 +14,7 @@ public class Launch implements Constant
     public static WebDriverWait wait;
 
     @BeforeClass
-    public void setUp() throws Exception {
+    public void setUp() {
         DriverManager.initializeDriver();
 
         //For SignIn

@@ -20,4 +20,5 @@ public interface Constant {
     String location ="7153";
 //    String deviceName_value ="RMX3950";
 //    String platformVersion_value = "14.0";
+    String re_status_check = "new UiSelector().text(\"7004-Myntra Warehouse-(terminal)\").index(8)";
 }

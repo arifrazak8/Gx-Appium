@@ -34,17 +34,18 @@ public class ArifTest extends Launch {
             menu.tabMenuButton();
             menu.tapDispatchForm();
         }
-//        try {
-//            var lo = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"7004-Myntra Warehouse-(terminal)\").index(8)"));
-//            System.out.println("Re-status is not required");
-//        } catch (Exception e) {
-//            System.out.println("Re-status is required");
-//            Re_statusPOM reStatus = new Re_statusPOM();
-//            reStatus.tabRe_StatusButton();
-//            reStatus.enterLocation("7004");
-//            reStatus.tapLocation();
-//            reStatus.tapSubmit();
-//        }
+        // For Re-status
+        try {
+            driver.findElement(AppiumBy.androidUIAutomator(re_status_check));
+            System.out.println("Re-status is not required");
+        } catch (Exception e) {
+            System.out.println("Re-status is required");
+            Re_statusPOM reStatus = new Re_statusPOM();
+            reStatus.tabRe_StatusButton();
+            reStatus.enterLocation("7004");
+            reStatus.tapLocation();
+            reStatus.tapSubmit();
+        }
 
         Dispatch_form_POM dispatchForm = new Dispatch_form_POM();
         dispatchForm.tapDispatchTo();
