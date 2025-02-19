@@ -1,9 +1,6 @@
 package Test;
 
-import Generic.Excel_reader;
-import Generic.Launch;
-import Generic.Mileage;
-import Generic.Swip;
+import Generic.*;
 import POM.Clock_in_POM;
 import POM.Dispatch_form_POM;
 import POM.Menu_POM;
@@ -39,18 +36,18 @@ public class ArifTest extends Launch {
             menu.tapDispatchForm();
         }
         // For Re-status
-//        try {
-//            Thread.sleep(2000);
-//            WebElement a = driver.findElement(AppiumBy.androidUIAutomator(re_status_check));
-//            System.out.println("Re-status is not required");
-//        } catch (Exception e) {
-//            System.out.println("Re-status is required");
-//            Re_statusPOM reStatus = new Re_statusPOM();
-//            reStatus.tabRe_StatusButton();
-//            reStatus.enterLocation("7004");
-//            reStatus.tapLocation();
-//            reStatus.tapSubmit();
-//        }
+        try {
+            Thread.sleep(2000);
+            WebElement a = driver.findElement(AppiumBy.androidUIAutomator(re_status_check));
+            System.out.println("Re-status is not required");
+        } catch (Exception e) {
+            System.out.println("Re-status is required");
+            Re_statusPOM reStatus = new Re_statusPOM();
+            reStatus.tabRe_StatusButton();
+            reStatus.enterLocation("7004");
+            reStatus.tapLocation();
+            reStatus.tapSubmit();
+        }
 
         Dispatch_form_POM dispatchForm = new Dispatch_form_POM();
         dispatchForm.tapDispatchTo();
@@ -60,6 +57,7 @@ public class ArifTest extends Launch {
         dispatchForm.enterDolly1("2");
         Swip.swipeAction(new Point(491, 1752), new Point(491, 624));
         dispatchForm.enterTrailer2("3");
+        dispatchForm.tapComboCheckbox();
         dispatchForm.enterMileage();
         dispatchForm.tapSubmitButton();
         dispatchForm.tapUploadImage();

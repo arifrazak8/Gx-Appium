@@ -1,19 +1,26 @@
 package Generic;
 
 import POM.Sign_in_POM;
-import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
-public class Launch implements Constant
+import javax.swing.*;
+
+public class Launch extends Testdata
 {
+    public WebDriver driver;
 
     @BeforeClass
     public void setUp() {
+        // Show a pop-up dialog to enter input before the test starts
+//        username = JOptionPane.showInputDialog("Enter the username:");
+//        password = JOptionPane.showInputDialog("Enter the password:");
+        location = JOptionPane.showInputDialog("Enter the Dispatch_To:");
 
         DriverManager.initializeDriver();
+        this.driver = DriverManager.getDriver();
 
         //For SignIn
         Sign_in_POM sign_in = new Sign_in_POM();

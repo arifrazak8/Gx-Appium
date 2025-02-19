@@ -12,8 +12,8 @@ import java.net.URL;
 import java.time.Duration;
 
 public class DriverManager implements Constant {
+
     public static AppiumDriver drivers;
-    public static WebDriverWait wait;
 
     public static void initializeDriver() {
         var options = new BaseOptions<>()
@@ -29,7 +29,6 @@ public class DriverManager implements Constant {
 
         drivers = new AndroidDriver(getUrl(), options);
         drivers.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        wait = new WebDriverWait(drivers, Duration.ofSeconds(10));
     }
     private static URL getUrl() {
         try {

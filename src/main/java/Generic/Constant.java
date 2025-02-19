@@ -12,13 +12,11 @@ public interface Constant {
     String automationName_value = "UiAutomator2";
     String Appium_URL ="http://127.0.0.1:4723/wd/hub";
     String[] sendkeys_element ={"Mail","E-Mail","Eposta adresiniz","Password","Passwort","Şifreniz"};
-    String username ="arifraza";
+    String username ="";
     String password ="1234567";
     String username1 ="jfelisme";
     String username2="dleonardo";
     String password1 ="123456";
     String location ="7153";
-//    String deviceName_value ="RMX3950";
-//    String platformVersion_value = "14.0";
     String re_status_check = "new UiSelector().text(\"7004-Myntra Warehouse-(terminal)\").index(8)";
 }

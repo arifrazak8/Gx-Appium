@@ -1,9 +1,6 @@
 package POM;
 
-import Generic.Constant;
-import Generic.DriverManager;
-import Generic.Excel_reader;
-import Generic.Mileage;
+import Generic.*;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -19,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Arrays;
 
-public class Dispatch_form_POM implements Constant {
+public class Dispatch_form_POM extends Launch {
 
     private AppiumDriver driver;
     private WebDriverWait wait;
@@ -43,9 +40,6 @@ public class Dispatch_form_POM implements Constant {
 
     @AndroidFindBy(xpath= "//android.widget.EditText")
     private WebElement enterLocation;
-
-//    @AndroidFindBy(accessibility= loc)
-//    private WebElement clickAction;
 
     @AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\")")
     private WebElement traile1;
@@ -137,9 +131,13 @@ public class Dispatch_form_POM implements Constant {
 
     public void tapUploadImageFile(){uploadImageFile.click();}
 
-    public void tapClickImage1(){clickImage1.click();}
+    public void tapClickImage1(){
+        wait.until(ExpectedConditions.elementToBeClickable(clickImage1));
+        clickImage1.click();}
 
-    public void tapClickImage2(){clickImage2.click();}
+    public void tapClickImage2(){
+        wait.until(ExpectedConditions.elementToBeClickable(clickImage2));
+        clickImage2.click();}
 
     public void tapShutter(){shutter.click();}
 
