@@ -22,6 +22,7 @@ public class ArifTest extends Launch {
             clock.tabColck_In();
             Thread.sleep(2000);
             clock.tapClickAsset();
+            clock.tapEnterAsset();
             clock.tapSelectAsset();
             clock.tapContinueButton();
             clock.tapCheckBox();

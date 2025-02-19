@@ -15,8 +15,7 @@ public class Launch extends Testdata
     @BeforeClass
     public void setUp() {
         // Show a pop-up dialog to enter input before the test starts
-//        username = JOptionPane.showInputDialog("Enter the username:");
-//        password = JOptionPane.showInputDialog("Enter the password:");
+        asset_no = JOptionPane.showInputDialog("Enter the Asset_no:");
         location = JOptionPane.showInputDialog("Enter the Dispatch_To:");
 
         DriverManager.initializeDriver();
