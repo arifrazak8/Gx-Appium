@@ -27,9 +27,9 @@ public class Launch extends Testdata
         sign_in.enterPassword(password);
         sign_in.tapViewPassword();
         sign_in.tapSubmitButton();
-        sign_in.tapAllowButton1();
         sign_in.tapAllowButton2();
         sign_in.tapAllowButton3();
+        sign_in.tapAllowButton1();
     }
 
     @BeforeTest

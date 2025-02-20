@@ -45,7 +45,7 @@ public class Clock_in_POM extends Launch {
     @AndroidFindBy(accessibility= "Submit")
     private WebElement submit;
 
-    public void tabColck_In() {
+    public void tabClock_In() {
         wait.until(ExpectedConditions.elementToBeClickable(clock_InButton));
         clock_InButton.click();
     }

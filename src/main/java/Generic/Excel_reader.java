@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Excel_reader extends Launch {
     public static String getLocation(String location) {
-        String filePath ="C:/Users/Wadmin/Downloads/Location.xlsx";
+        String filePath ="D:\\Arif\\GX Appium\\src\\main\\resources\\Locations.xlsx";
         String locations="";
         try (FileInputStream fis = new FileInputStream(filePath);
              Workbook workbook = new XSSFWorkbook(fis)) {

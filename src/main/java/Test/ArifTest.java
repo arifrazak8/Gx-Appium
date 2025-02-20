@@ -18,8 +18,8 @@ public class ArifTest extends Launch {
         //If clock_in required.
         try {
             Clock_in_POM clock = new Clock_in_POM();
-            clock.tabColck_In();
-            clock.tabColck_In();
+            clock.tabClock_In();
+            clock.tabClock_In();
             Thread.sleep(2000);
             clock.tapClickAsset();
             clock.tapEnterAsset();
@@ -54,7 +54,7 @@ public class ArifTest extends Launch {
         dispatchForm.tapDispatchTo();
         dispatchForm.enterLocation();
         dispatchForm.tapSelectLocation();
-        dispatchForm.enterTraile1("1");
+        dispatchForm.enterTrailer1("1");
         dispatchForm.enterDolly1("2");
         Swip.swipeAction(new Point(491, 1752), new Point(491, 624));
         dispatchForm.enterTrailer2("3");

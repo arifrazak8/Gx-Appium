@@ -56,7 +56,7 @@ public class Dispatch_form_POM extends Launch {
     @AndroidFindBy(accessibility= " Mark as Combo Trip")
     private WebElement comboCheckbox;
 
-    @AndroidFindBy(accessibility="zero")
+    @AndroidFindBy(accessibility=" Zero Package Trailer")
     private WebElement zeroCheckbox;
 
     @AndroidFindBy(accessibility= "Submit")
@@ -93,10 +93,10 @@ public class Dispatch_form_POM extends Launch {
         this.clickAction = driver.findElement(AppiumBy.accessibilityId(loc));
         clickAction.click();}
 
-    public void enterTraile1(String traile1_no) {
+    public void enterTrailer1(String trailer1_no) {
         wait.until(ExpectedConditions.elementToBeClickable(traile1));
         traile1.click();
-        traile1.sendKeys(traile1_no);
+        traile1.sendKeys(trailer1_no);
     }
 
     public void enterDolly1(String dolly1_no) {
