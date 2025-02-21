@@ -17,6 +17,7 @@ public class ArifTest extends Launch {
 
         //If clock_in required.
         try {
+            try {
             Clock_in_POM clock = new Clock_in_POM();
             clock.tabClock_In();
             clock.tabClock_In();
@@ -37,7 +38,6 @@ public class ArifTest extends Launch {
             menu.tapDispatchForm();
         }
         // For Re-status
-        try {
             Thread.sleep(2000);
             WebElement a = driver.findElement(AppiumBy.androidUIAutomator(re_status_check));
             System.out.println("Re-status is not required");
@@ -56,7 +56,7 @@ public class ArifTest extends Launch {
         dispatchForm.tapSelectLocation();
         dispatchForm.enterTrailer1("1");
         dispatchForm.enterDolly1("2");
-        Swip.swipeAction(new Point(491, 1752), new Point(491, 624));
+        Swipe.swipeAction(new Point(491, 1752), new Point(491, 624));
         dispatchForm.enterTrailer2("3");
         dispatchForm.tapComboCheckbox();
         dispatchForm.enterMileage();
@@ -66,7 +66,7 @@ public class ArifTest extends Launch {
         dispatchForm.tapClickImage1();
         dispatchForm.tapShutter();
         dispatchForm.tapDone();
-        Swip.swipeAction(new Point(498, 1884), new Point(507, 548));
+        Swipe.swipeAction(new Point(498, 1884), new Point(507, 548));
         dispatchForm.tapClickImage2();
         dispatchForm.tapShutter();
         dispatchForm.tapDone();

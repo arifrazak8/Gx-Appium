@@ -7,7 +7,7 @@ import org.openqa.selenium.interactions.Sequence;
 import java.time.Duration;
 import java.util.Arrays;
 
-public class Swip {
+public class Swipe {
 
     public static void swipeAction(Point start, Point end) {
         final var finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
