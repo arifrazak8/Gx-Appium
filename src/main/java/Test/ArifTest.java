@@ -54,9 +54,10 @@ public class ArifTest extends Launch {
         dispatchForm.tapDispatchTo();
         dispatchForm.enterLocation();
         dispatchForm.tapSelectLocation();
+        Thread.sleep(1000);
+        Swipe.swipeAction(new Point(461, 2022), new Point(461, 622));
         dispatchForm.enterTrailer1("1");
         dispatchForm.enterDolly1("2");
-        Swipe.swipeAction(new Point(491, 1752), new Point(491, 624));
         dispatchForm.enterTrailer2("3");
         dispatchForm.tapComboCheckbox();
         dispatchForm.enterMileage();
@@ -64,13 +65,21 @@ public class ArifTest extends Launch {
         dispatchForm.tapUploadImage();
         dispatchForm.tapUploadImageFile();
         dispatchForm.tapClickImage1();
+        dispatchForm.tapPermission();
         dispatchForm.tapShutter();
         dispatchForm.tapDone();
-        Swipe.swipeAction(new Point(498, 1884), new Point(507, 548));
+        Thread.sleep(1000);
+        Swipe.swipeAction(new Point(534, 2004), new Point(553, 387));
         dispatchForm.tapClickImage2();
         dispatchForm.tapShutter();
         dispatchForm.tapDone();
         dispatchForm.tapSubmitButton();
-        Thread.sleep(5000);
+
+        try {
+            dispatchForm.tapNoButton();
+            Thread.sleep(1000);
+        }catch (Exception e){
+            System.out.println("Pass");
+        }
     }
 }

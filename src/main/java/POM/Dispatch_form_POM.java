@@ -44,7 +44,7 @@ public class Dispatch_form_POM extends Launch {
     @AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\")")
     private WebElement traile1;
 
-    @AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(1)")
+    @AndroidFindBy(xpath= "//android.view.View[@content-desc=\"Line Haul Dispatch Form\"]/android.view.View[1]/android.view.View/android.widget.EditText[2]")
     private WebElement dolly1;
 
     @AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(2)")
@@ -79,6 +79,15 @@ public class Dispatch_form_POM extends Launch {
 
     @AndroidFindBy(accessibility= "Done")
     private WebElement done;
+
+    @AndroidFindBy(id= "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
+    private WebElement permission;
+
+    @AndroidFindBy(accessibility= "Yes")
+    private WebElement yesButton;
+
+    @AndroidFindBy(accessibility= "No")
+    private WebElement noButton;
 
     public void tapDispatchFrom(){dispatchFromTextField.click();}
 
@@ -142,5 +151,13 @@ public class Dispatch_form_POM extends Launch {
     public void tapShutter(){shutter.click();}
 
     public void tapDone(){done.click();}
+
+    public void tapPermission(){permission.click();}
+
+    public void tapYesButton(){yesButton.click();}
+
+    public void tapNoButton(){
+        wait.until(ExpectedConditions.elementToBeClickable(noButton));
+        noButton.click();}
 
 }

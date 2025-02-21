@@ -15,7 +15,7 @@ public class Launch extends Testdata
     @BeforeClass
     public void setUp() {
         // Show a pop-up dialog to enter input before the test starts
-        asset_no = JOptionPane.showInputDialog("Enter the Asset_no:");
+//        asset_no = JOptionPane.showInputDialog("Enter the Asset_no:");  //
         location = JOptionPane.showInputDialog("Enter the Dispatch_To:");
 
         DriverManager.initializeDriver();
@@ -39,7 +39,7 @@ public class Launch extends Testdata
     }
 
     @AfterClass
-    public void teardown() {
+    public void tearDown() {
         DriverManager.quitDriver();
     }
 }
