@@ -21,7 +21,7 @@ public class Dispatch_form_POM extends Launch {
     private AppiumDriver driver;
     private WebDriverWait wait;
     private WebElement clickAction;
-    private String loc =Excel_reader.getLocation(location);
+    private String loc =Excel_reader.getLocation(to_location);
 
     Mileage m = new Mileage();
     String numberAsString = String.valueOf(Mileage.number);
@@ -95,7 +95,7 @@ public class Dispatch_form_POM extends Launch {
 
     public void enterLocation() {
         wait.until(ExpectedConditions.elementToBeClickable(enterLocation));
-        enterLocation.sendKeys(location);
+        enterLocation.sendKeys(to_location);
     }
 
     public void tapSelectLocation(){

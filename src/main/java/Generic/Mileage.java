@@ -13,7 +13,7 @@ public class Mileage {
         Properties properties = new Properties();
         try (FileInputStream fis = new FileInputStream(FILE_PATH)) {
             properties.load(fis);
-            return Integer.parseInt(properties.getProperty("number", "55")); // Default value 100
+            return Integer.parseInt(properties.getProperty("number", "55")); // Default value 55
         } catch (IOException e) {
             e.printStackTrace();
             return 55; // Default value if file doesn't exist

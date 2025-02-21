@@ -51,13 +51,14 @@ public class ArifTest extends Launch {
         }
         // For Re-status
             wait(2000);
-            WebElement a = driver.findElement(AppiumBy.androidUIAutomator(re_status_check));
+            String re_status_check = Excel_reader.getLocation(from_location);
+            WebElement a = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\""+re_status_check+"\").index(8)"));
             System.out.println("Re-status is not required");
         } catch (Exception e) {
             System.out.println("Re-status is required");
             Re_statusPOM reStatus = new Re_statusPOM();
             reStatus.tabRe_StatusButton();
-            reStatus.enterLocation("7004");
+            reStatus.enterLocation(from_location);
             reStatus.tapLocation();
             reStatus.tapSubmit();
         }
