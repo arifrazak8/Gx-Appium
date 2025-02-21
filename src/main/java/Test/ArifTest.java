@@ -1,19 +1,31 @@
 package Test;
 
 import Generic.*;
-import POM.Clock_in_POM;
-import POM.Dispatch_form_POM;
-import POM.Menu_POM;
-import POM.Re_statusPOM;
+import POM.*;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+
 public class ArifTest extends Launch {
 
-    @Test
-    public void TC1() throws InterruptedException {
+//    @Test(dataProvider = "testData")
+//    public void signin(String username, String password){
+//
+//        Sign_in_POM sign_in = new Sign_in_POM();
+//        sign_in.enterUsername(username);
+//        sign_in.enterPassword(password);
+//        sign_in.tapViewPassword();
+//        sign_in.tapSubmitButton();
+//        sign_in.tapAllowButton2();
+//        sign_in.tapAllowButton3();
+//        sign_in.tapAllowButton1();
+//
+//    }
+
+    @Test()
+    public void TC1() {
 
         //If clock_in required.
         try {
@@ -21,7 +33,7 @@ public class ArifTest extends Launch {
             Clock_in_POM clock = new Clock_in_POM();
             clock.tabClock_In();
             clock.tabClock_In();
-            Thread.sleep(2000);
+            wait(2000);
             clock.tapClickAsset();
             clock.tapEnterAsset();
             clock.tapSelectAsset();
@@ -38,7 +50,7 @@ public class ArifTest extends Launch {
             menu.tapDispatchForm();
         }
         // For Re-status
-            Thread.sleep(2000);
+            wait(2000);
             WebElement a = driver.findElement(AppiumBy.androidUIAutomator(re_status_check));
             System.out.println("Re-status is not required");
         } catch (Exception e) {
@@ -54,7 +66,7 @@ public class ArifTest extends Launch {
         dispatchForm.tapDispatchTo();
         dispatchForm.enterLocation();
         dispatchForm.tapSelectLocation();
-        Thread.sleep(1000);
+        wait(2000);
         Swipe.swipeAction(new Point(461, 2022), new Point(461, 622));
         dispatchForm.enterTrailer1("1");
         dispatchForm.enterDolly1("2");
@@ -68,7 +80,7 @@ public class ArifTest extends Launch {
         dispatchForm.tapPermission();
         dispatchForm.tapShutter();
         dispatchForm.tapDone();
-        Thread.sleep(1000);
+        wait(2000);
         Swipe.swipeAction(new Point(534, 2004), new Point(553, 387));
         dispatchForm.tapClickImage2();
         dispatchForm.tapShutter();
@@ -77,9 +89,17 @@ public class ArifTest extends Launch {
 
         try {
             dispatchForm.tapNoButton();
-            Thread.sleep(1000);
+            wait(2000);
         }catch (Exception e){
             System.out.println("Pass");
+        }
+    }
+
+    private void wait(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
     }
 }

@@ -1,21 +1,23 @@
 package Generic;
 
 import POM.Sign_in_POM;
-import org.openqa.selenium.WebDriver;
+import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class Launch extends Testdata
 {
-    public WebDriver driver;
+    public AppiumDriver driver;
 
-    @BeforeClass
+    @BeforeClass()
     public void setUp() {
         // Show a pop-up dialog to enter input before the test starts
-//        asset_no = JOptionPane.showInputDialog("Enter the Asset_no:");  //
+//        asset_no = JOptionPane.showInputDialog("Enter the Asset_no:");  //if clock_in required
         location = JOptionPane.showInputDialog("Enter the Dispatch_To:");
 
         DriverManager.initializeDriver();
@@ -30,6 +32,11 @@ public class Launch extends Testdata
         sign_in.tapAllowButton2();
         sign_in.tapAllowButton3();
         sign_in.tapAllowButton1();
+    }
+
+    @DataProvider(name = "testData")
+    public Object[][] getDataFromExcel() throws IOException {
+        return Excel_reader.getTestData();
     }
 
     @BeforeTest
