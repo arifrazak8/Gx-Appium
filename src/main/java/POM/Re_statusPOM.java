@@ -3,9 +3,11 @@ package POM;
 import Generic.DriverManager;
 import Generic.Excel_reader;
 import Generic.Launch;
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -29,8 +31,8 @@ public class Re_statusPOM extends Launch {
     @AndroidFindBy(className= "android.widget.EditText")
     private WebElement locationField;
 
-    @AndroidFindBy(accessibility= "7004-Myntra Warehouse-(terminal)")
-    private WebElement selectLocation;
+//    @AndroidFindBy(accessibility= "7004-Myntra Warehouse-(terminal)")
+//    private WebElement selectLocation;
 
 
     @AndroidFindBy(accessibility= "Submit  ")
@@ -44,7 +46,9 @@ public class Re_statusPOM extends Launch {
         locationField.sendKeys(location);
     }
 
-    public void tapLocation(){selectLocation.click();}
+    public void tapLocation(){
+        WebElement selectLocation =driver.findElement(AppiumBy.accessibilityId(re_status_check));
+        selectLocation.click();}
 
     public void tapSubmit(){submit.click();}
 }
