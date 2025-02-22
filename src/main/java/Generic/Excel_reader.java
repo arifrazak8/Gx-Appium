@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Excel_reader extends Launch {
 
-    private static final String FILE_PATH ="D:\\Arif\\GX Appium\\src\\main\\resources\\Locations.xlsx";
+    private static final String FILE_PATH ="/Users/arifraza/Appium/Gx-Appium/src/main/resources/Locations.xlsx";
     private static Workbook workbook;
     private static Sheet sheet;
 

@@ -8,9 +8,9 @@ public interface Constant {
     String platformName_value = "Android";
     String platformVersion_value = "15.0";
     String deviceName_value ="Medium Phone API 35";
-    String app_value = "C:\\Users\\Wadmin\\Downloads\\GX-Staging-19.02.25.apk";
+    String app_value = "/Users/arifraza/Downloads/GX-Staging-19.02.25.apk";
     String automationName_value = "UiAutomator2";
-    String Appium_URL ="http://127.0.0.1:4723/wd/hub";
+    String Appium_URL ="http://127.0.0.1:4723";
     String[] sendkeys_element ={"Mail","E-Mail","Eposta adresiniz","Password","Passwort","Şifreniz"};
     String username ="";
     String password ="1234567";
