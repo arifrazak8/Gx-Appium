@@ -21,7 +21,6 @@ public class ArifTest extends Launch {
 //        sign_in.tapAllowButton2();
 //        sign_in.tapAllowButton3();
 //        sign_in.tapAllowButton1();
-//
 //    }
 
     @Test()
@@ -33,7 +32,7 @@ public class ArifTest extends Launch {
             Clock_in_POM clock = new Clock_in_POM();
             clock.tabClock_In();
             clock.tabClock_In();
-            wait(2000);
+            wait(1000);
             clock.tapClickAsset();
             clock.tapEnterAsset();
             clock.tapSelectAsset();
@@ -50,7 +49,7 @@ public class ArifTest extends Launch {
             menu.tapDispatchForm();
         }
         // For Re-status
-            wait(2000);
+            wait(1000);
             String re_status_check = Excel_reader.getLocation(from_location);
             WebElement a = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\""+re_status_check+"\").index(8)"));
             System.out.println("Re-status is not required");
@@ -67,11 +66,14 @@ public class ArifTest extends Launch {
         dispatchForm.tapDispatchTo();
         dispatchForm.enterLocation();
         dispatchForm.tapSelectLocation();
-        wait(2000);
-        Swipe.swipeAction(new Point(461, 2022), new Point(461, 622));
+        wait(1000);
+//        Swipe.swipeAction(new Point(461, 2022), new Point(461, 622)); //for emulator
+        Swipe.swipeAction(new Point(271, 1318), new Point(286, 333)); //for real device
         dispatchForm.enterTrailer1("1");
         dispatchForm.enterDolly1("2");
+        dispatchForm.tapScreen();
         dispatchForm.enterTrailer2("3");
+        dispatchForm.tapScreen();
         dispatchForm.tapComboCheckbox();
         dispatchForm.enterMileage();
         dispatchForm.tapSubmitButton();
@@ -81,8 +83,9 @@ public class ArifTest extends Launch {
         dispatchForm.tapPermission();
         dispatchForm.tapShutter();
         dispatchForm.tapDone();
-        wait(2000);
-        Swipe.swipeAction(new Point(534, 2004), new Point(553, 387));
+        wait(1000);
+//        Swipe.swipeAction(new Point(534, 2004), new Point(553, 387)); //for emulator
+        Swipe.swipeAction(new Point(371, 1318), new Point(286, 333)); //for real devi?ce
         dispatchForm.tapClickImage2();
         dispatchForm.tapShutter();
         dispatchForm.tapDone();
@@ -90,7 +93,7 @@ public class ArifTest extends Launch {
 
         try {
             dispatchForm.tapNoButton();
-            wait(2000);
+            wait(1000);
         }catch (Exception e){
             System.out.println("Pass");
         }

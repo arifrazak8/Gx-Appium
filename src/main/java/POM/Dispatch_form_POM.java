@@ -89,6 +89,9 @@ public class Dispatch_form_POM extends Launch {
     @AndroidFindBy(accessibility= "No")
     private WebElement noButton;
 
+    @AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.view.View\").instance(11)")
+    private WebElement screenTap;
+
     public void tapDispatchFrom(){dispatchFromTextField.click();}
 
     public void tapDispatchTo(){dispatchToTextField.click();}
@@ -155,6 +158,8 @@ public class Dispatch_form_POM extends Launch {
     public void tapPermission(){permission.click();}
 
     public void tapYesButton(){yesButton.click();}
+
+    public void tapScreen(){screenTap.click();}
 
     public void tapNoButton(){
         wait.until(ExpectedConditions.elementToBeClickable(noButton));
