@@ -6,7 +6,7 @@ public interface Constant {
 
     String platformName_value = "Android";
     String platformVersion_value = "15.0";
-    String deviceName_value ="Medium Phone API 35";
+    String deviceName_value ="emulator-5554";
     String app_value = "C:\\Users\\Wadmin\\Downloads\\GX-Staging-19.02.25.apk";
     String automationName_value = "UiAutomator2";
     String Appium_URL ="http://127.0.0.1:4723/wd/hub";

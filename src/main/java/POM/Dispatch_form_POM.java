@@ -126,6 +126,7 @@ public class Dispatch_form_POM extends Launch {
     public void enterMileage() {
         wait.until(ExpectedConditions.elementToBeClickable(mileage));
         mileage.click();
+        wait.until(ExpectedConditions.visibilityOf(mileage));
         mileage.sendKeys(numberAsString);
         Mileage.number+=1;
         m.saveNumberToFile(Mileage.number);

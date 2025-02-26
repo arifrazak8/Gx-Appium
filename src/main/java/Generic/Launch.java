@@ -24,14 +24,18 @@ public class Launch extends Testdata
         this.driver = DriverManager.getDriver();
 
         //For SignIn
-        Sign_in_POM sign_in = new Sign_in_POM();
-        sign_in.enterUsername(username);
-        sign_in.enterPassword(password);
-        sign_in.tapViewPassword();
-        sign_in.tapSubmitButton();
-        sign_in.tapAllowButton2();
-        sign_in.tapAllowButton3();
-        sign_in.tapAllowButton1();
+        try {
+            Sign_in_POM sign_in = new Sign_in_POM();
+            sign_in.enterUsername(username);
+            sign_in.enterPassword(password);
+            sign_in.tapViewPassword();
+            sign_in.tapSubmitButton();
+            sign_in.tapAllowButton2();
+            sign_in.tapAllowButton3();
+            sign_in.tapAllowButton1();
+        } catch (Exception e) {
+            System.out.println("Sign-in is not required");
+        }
     }
 
     @DataProvider(name = "testData")

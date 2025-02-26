@@ -18,8 +18,8 @@ public class DriverManager implements Constant {
     public static void initializeDriver() {
         var options = new BaseOptions<>()
                 .amend("platformName", platformName_value)
-//                .amend("appium:platformVersion", platformVersion_value)
-                .amend("appium:deviceName", realDeviceName_value)
+                .amend("appium:platformVersion", platformVersion_value)
+                .amend("appium:deviceName", deviceName_value)
 //                .amend("appium:app", app_value )
                 .amend("appPackage","app.groundmetrx.com")
                 .amend("appActivity", "app.groundmetrx.com.MainActivity")
@@ -27,7 +27,9 @@ public class DriverManager implements Constant {
                 .amend("appium:ensureWebviewsHavePages", true)
                 .amend("appium:nativeWebScreenshot", true)
                 .amend("appium:newCommandTimeout", 3600)
+                .amend("noReset", true) //for session
                 .amend("appium:connectHardwareKeyboard", true);
+
 
         drivers = new AndroidDriver(getUrl(), options);
         drivers.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
