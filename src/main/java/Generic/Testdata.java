@@ -6,5 +6,6 @@ public class Testdata {
     public static String to_location;
     public static String from_location;
     public static String asset_no;
+    public static String dayOfWeek;
 
 }

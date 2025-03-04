@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class ArifTest extends Launch {
 
-//    @Test(dataProvider = "testData")
+//    @Test(dataProvider = "testData" )
 //    public void signin(String username, String password){
 //
 //        Sign_in_POM sign_in = new Sign_in_POM();
@@ -105,5 +105,21 @@ public class ArifTest extends Launch {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
+    }
+    @Test
+    public void TC2(){
+        Menu_POM menu = new Menu_POM();
+        menu.tabMenuButton();
+        menu.tapTimeCard();
+        Time_card_POM time =new Time_card_POM();
+        time.tapSelectDay("Monday");
+        time.tapRequestMissedPunched();
+        time.tapSelectEndTime();
+        time.tapSelectTime();
+        time.enterHours("10");
+        time.enterMinutes("50");
+        time.tapOK();
+        time.enterMessage();
+        time.tapSend();
     }
 }

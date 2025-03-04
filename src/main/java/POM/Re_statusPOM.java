@@ -31,10 +31,6 @@ public class Re_statusPOM extends Launch {
     @AndroidFindBy(className= "android.widget.EditText")
     private WebElement locationField;
 
-//    @AndroidFindBy(accessibility= "7004-Myntra Warehouse-(terminal)")
-//    private WebElement selectLocation;
-
-
     @AndroidFindBy(accessibility= "Submit  ")
     private WebElement submit;
 

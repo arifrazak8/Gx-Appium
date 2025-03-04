@@ -20,7 +20,6 @@ public class Dispatch_form_POM extends Launch {
 
     private AppiumDriver driver;
     private WebDriverWait wait;
-    private WebElement clickAction;
     private String loc =Excel_reader.getLocation(to_location);
 
     Mileage m = new Mileage();
@@ -52,6 +51,9 @@ public class Dispatch_form_POM extends Launch {
 
     @AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(3)")
     private WebElement mileage;
+
+    @AndroidFindBy(xpath= "//android.view.View[@content-desc=\"Line Haul Dispatch Form\"]/android.view.View[1]/android.view.View/android.widget.EditText[4]")
+    private WebElement mileage1;
 
     @AndroidFindBy(accessibility= " Mark as Combo Trip")
     private WebElement comboCheckbox;
@@ -102,7 +104,7 @@ public class Dispatch_form_POM extends Launch {
     }
 
     public void tapSelectLocation(){
-        this.clickAction = driver.findElement(AppiumBy.accessibilityId(loc));
+        WebElement clickAction = driver.findElement(AppiumBy.accessibilityId(loc));
         clickAction.click();}
 
     public void enterTrailer1(String trailer1_no) {
@@ -126,8 +128,13 @@ public class Dispatch_form_POM extends Launch {
     public void enterMileage() {
         wait.until(ExpectedConditions.elementToBeClickable(mileage));
         mileage.click();
-        wait.until(ExpectedConditions.visibilityOf(mileage));
-        mileage.sendKeys(numberAsString);
+        try {
+//            wait.until(ExpectedConditions.visibilityOf(mileage));
+            mileage.sendKeys(numberAsString);
+        } catch (Exception e) {
+//            wait.until(ExpectedConditions.visibilityOf(mileage1));
+            mileage1.sendKeys(numberAsString);
+        }
         Mileage.number+=1;
         m.saveNumberToFile(Mileage.number);
     }
