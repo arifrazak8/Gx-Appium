@@ -24,12 +24,14 @@ public class ArifTest extends Launch {
 //    }
 
     @Test()
-    public void TC1() {
-
+    public void TC1() throws InterruptedException {
+        Clock_in_POM clock = new Clock_in_POM();
+        Menu_POM menu = new Menu_POM();
+        Dispatch_form_POM dispatchForm = new Dispatch_form_POM();
+        Time_card_POM time =new Time_card_POM();
         //If clock_in required.
         try {
             try {
-            Clock_in_POM clock = new Clock_in_POM();
             clock.tabClock_In();
             clock.tabClock_In();
             wait(1000);
@@ -44,7 +46,6 @@ public class ArifTest extends Launch {
             System.out.println("Clock_in was required");
         } catch (Exception e) {
             System.out.println("Clock_in is not required");
-            Menu_POM menu = new Menu_POM();
             menu.tabMenuButton();
             menu.tapDispatchForm();
         }
@@ -62,7 +63,7 @@ public class ArifTest extends Launch {
             reStatus.tapSubmit();
         }
 
-        Dispatch_form_POM dispatchForm = new Dispatch_form_POM();
+
         dispatchForm.tapDispatchTo();
         dispatchForm.enterLocation();
         dispatchForm.tapSelectLocation();
@@ -74,7 +75,7 @@ public class ArifTest extends Launch {
         dispatchForm.tapScreen();
         dispatchForm.enterTrailer2("3");
         dispatchForm.tapScreen();
-        dispatchForm.tapComboCheckbox();
+//        dispatchForm.tapComboCheckbox();
         dispatchForm.enterMileage();
         dispatchForm.tapSubmitButton();
         dispatchForm.tapUploadImage();
@@ -96,22 +97,12 @@ public class ArifTest extends Launch {
             wait(1000);
         }catch (Exception e){
             System.out.println("Pass");
+            wait(1000);
         }
-    }
-
-    private void wait(int millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
-    @Test
-    public void TC2(){
-        Menu_POM menu = new Menu_POM();
+        menu.tapBack();
         menu.tabMenuButton();
         menu.tapTimeCard();
-        Time_card_POM time =new Time_card_POM();
+
         time.tapSelectDay("Monday");
         time.tapRequestMissedPunched();
         time.tapSelectEndTime();
@@ -122,4 +113,27 @@ public class ArifTest extends Launch {
         time.enterMessage();
         time.tapSend();
     }
+    private void wait(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+//    @Test
+//    public void TC2(){
+//        Menu_POM menu = new Menu_POM();
+//        menu.tabMenuButton();
+//        menu.tapTimeCard();
+//        Time_card_POM time =new Time_card_POM();
+//        time.tapSelectDay("Monday");
+//        time.tapRequestMissedPunched();
+//        time.tapSelectEndTime();
+//        time.tapSelectTime();
+//        time.enterHours("10");
+//        time.enterMinutes("50");
+//        time.tapOK();
+//        time.enterMessage();
+//        time.tapSend();
+//    }
 }

@@ -25,7 +25,6 @@ public class Time_card_POM {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-
     @AndroidFindBy(accessibility= "Request Missed Punched")
     private WebElement request_Missed_Punched;
 
@@ -82,6 +81,4 @@ public class Time_card_POM {
         minutes.clear();
         minutes.sendKeys(minute);
     }
-
-
 }

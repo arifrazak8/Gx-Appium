@@ -60,6 +60,9 @@ public class Menu_POM {
     @AndroidFindBy(accessibility= "Logout")
     private WebElement logout;
 
+    @AndroidFindBy(xpath= "//android.widget.ImageView")
+    private WebElement back;
+
 
     public void tabMenuButton() {
         wait.until(ExpectedConditions.elementToBeClickable(menuButton));
@@ -116,4 +119,8 @@ public class Menu_POM {
     public void tapLogout(){
         wait.until(ExpectedConditions.elementToBeClickable(logout));
         logout.click();}
+
+    public void tapBack(){
+        wait.until(ExpectedConditions.elementToBeClickable(back));
+        back.click();}
 }

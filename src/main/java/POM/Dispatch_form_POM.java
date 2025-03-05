@@ -52,7 +52,7 @@ public class Dispatch_form_POM extends Launch {
     @AndroidFindBy(uiAutomator= "new UiSelector().className(\"android.widget.EditText\").instance(3)")
     private WebElement mileage;
 
-    @AndroidFindBy(xpath= "//android.view.View[@content-desc=\"Line Haul Dispatch Form\"]/android.view.View[1]/android.view.View/android.widget.EditText[4]")
+    @AndroidFindBy(xpath= "//android.view.View[@content-desc=\"Line Haul Dispatch Form\"]/android.view.View[1]/android.view.View/android.widget.EditText[3]")
     private WebElement mileage1;
 
     @AndroidFindBy(accessibility= " Mark as Combo Trip")
@@ -78,9 +78,14 @@ public class Dispatch_form_POM extends Launch {
 
     @AndroidFindBy(accessibility= "Shutter")
     private WebElement shutter ;
+    @AndroidFindBy(accessibility= "\"Shutter\" button")
+    private WebElement realShutter ;
 
     @AndroidFindBy(accessibility= "Done")
     private WebElement done;
+    @AndroidFindBy(accessibility= "com.oplus.camera:id/done_button")
+    private WebElement realDone;
+
 
     @AndroidFindBy(id= "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
     private WebElement permission;
@@ -125,15 +130,16 @@ public class Dispatch_form_POM extends Launch {
         trailer2.sendKeys(trailer2_no);
     }
 
-    public void enterMileage() {
+    public void enterMileage() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(mileage));
         mileage.click();
         try {
 //            wait.until(ExpectedConditions.visibilityOf(mileage));
             mileage.sendKeys(numberAsString);
         } catch (Exception e) {
-//            wait.until(ExpectedConditions.visibilityOf(mileage1));
-            mileage1.sendKeys(numberAsString);
+            wait.until(ExpectedConditions.visibilityOf(mileage1));
+//            System.out.println("Enter mileage manually");
+//         Thread.sleep(5000);
         }
         Mileage.number+=1;
         m.saveNumberToFile(Mileage.number);
@@ -159,10 +165,21 @@ public class Dispatch_form_POM extends Launch {
         wait.until(ExpectedConditions.elementToBeClickable(clickImage2));
         clickImage2.click();}
 
-    public void tapShutter(){shutter.click();}
+    public void tapShutter(){
+     try {
+         shutter.click();
+     } catch (Exception e) {
+         realShutter.click();
+     }
+    }
 
-    public void tapDone(){done.click();}
-
+    public void tapDone(){
+        try {
+            done.click();
+        } catch (Exception e) {
+            realDone.click();
+        }
+       }
     public void tapPermission(){permission.click();}
 
     public void tapYesButton(){yesButton.click();}

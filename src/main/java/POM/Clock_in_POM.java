@@ -16,7 +16,6 @@ import java.time.Duration;
 public class Clock_in_POM extends Launch {
     private AppiumDriver driver;
     private WebDriverWait wait;
-    private WebElement selectAsset;
 
     public Clock_in_POM() {
         this.driver = DriverManager.getDriver();
@@ -60,9 +59,8 @@ public class Clock_in_POM extends Launch {
         enterAsset.sendKeys(asset_no);
     }
 
-    public void tapSelectAsset() throws InterruptedException {
-        Thread.sleep(2000);
-        this.selectAsset = driver.findElement(AppiumBy.accessibilityId(asset_no));
+    public void tapSelectAsset() {
+        WebElement selectAsset = driver.findElement(AppiumBy.accessibilityId(asset_no));
         wait.until(ExpectedConditions.elementToBeClickable(selectAsset));
         selectAsset.click();}
 
@@ -73,13 +71,16 @@ public class Clock_in_POM extends Launch {
 
     public void tapCheckBox(){
         wait.until(ExpectedConditions.elementToBeClickable(checkBox));
-        checkBox.click();}
+        checkBox.click();
+        }
 
     public void tapSign(){
         wait.until(ExpectedConditions.elementToBeClickable(sign));
-        sign.click();}
+        sign.click();
+    }
 
     public void tapSubmit(){
         wait.until(ExpectedConditions.elementToBeClickable(submit));
-        submit.click();}
+        submit.click();
+    }
 }
