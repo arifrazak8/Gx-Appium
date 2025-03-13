@@ -62,8 +62,6 @@ public class ArifTest extends Launch {
             reStatus.tapLocation();
             reStatus.tapSubmit();
         }
-
-
         dispatchForm.tapDispatchTo();
         dispatchForm.enterLocation();
         dispatchForm.tapSelectLocation();
