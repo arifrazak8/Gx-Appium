@@ -1,4 +1,4 @@
-package Generic;
+package Utils;
 
 import java.sql.*;
 import java.sql.DriverManager;

@@ -1,6 +1,6 @@
 package POM;
 
-import Generic.DriverManager;
+import Utils.DriverManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;

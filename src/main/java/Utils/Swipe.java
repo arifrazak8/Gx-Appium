@@ -1,4 +1,4 @@
-package Generic;
+package Utils;
 
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.PointerInput;

@@ -1,4 +1,4 @@
-package Generic;
+package Utils;
 
 public class Testdata {
     public static String username ="arifraza";

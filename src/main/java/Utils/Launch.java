@@ -1,4 +1,4 @@
-package Generic;
+package Utils;
 
 import POM.Sign_in_POM;
 import io.appium.java_client.AppiumDriver;

@@ -1,4 +1,4 @@
-package Generic;
+package Utils;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -1,6 +1,4 @@
-package Generic;
-
-import org.openqa.selenium.support.ui.WebDriverWait;
+package Utils;
 
 public interface Constant {
 

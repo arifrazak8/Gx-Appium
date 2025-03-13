@@ -1,7 +1,7 @@
 package POM;
 
-import Generic.DriverManager;
-import Generic.Launch;
+import Utils.DriverManager;
+import Utils.Launch;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
