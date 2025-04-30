@@ -100,7 +100,6 @@ public class ArifTest extends Launch {
         menu.tapBack();
         menu.tabMenuButton();
         menu.tapTimeCard();
-
         time.tapSelectDay("Monday");
         time.tapRequestMissedPunched();
         time.tapSelectEndTime();

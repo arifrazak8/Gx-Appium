@@ -9,13 +9,14 @@ import org.testng.annotations.DataProvider;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 public class Launch extends Testdata
 {
     public AppiumDriver driver;
 
     @BeforeClass()
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         // Show a pop-up dialog to enter input before the test starts
 //        asset_no = JOptionPane.showInputDialog("Enter the Asset_no:");  //if clock_in required
         from_location= JOptionPane.showInputDialog("Enter the Dispatch_From:");
